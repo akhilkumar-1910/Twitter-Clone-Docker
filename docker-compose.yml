@@ -1,0 +1,36 @@
+version: "3.7"
+   
+services:
+  db:
+    restart: always
+    image: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  grpc:
+    build:
+      context: ./twitter_clone_grpc
+      dockerfile: Dockerfile
+    command: python grpc_server.py
+    volumes:
+      - ./twitter_clone_grpc:/code:rw
+    tty: true
+    ports:
+      - "50051:50051"
+    depends_on:
+      - db
+  api:
+    build:
+      context: ./twitter_clone_api
+      dockerfile: Dockerfile
+    volumes:
+      - ./twitter_clone_api:/code:rw
+    tty: true
+    ports:
+      - "8000:8000"
+volumes:
+  pgdata: {}
+
