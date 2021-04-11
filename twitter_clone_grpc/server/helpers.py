@@ -1,6 +1,7 @@
+from google.protobuf.timestamp_pb2 import Timestamp
+
 from database.twitter_clone_db import TwitterCloneDB
 from proto.twitter_clone_pb2 import Tweet
-from google.protobuf.timestamp_pb2 import Timestamp
 
 
 class Helper:
@@ -55,10 +56,27 @@ class Helper:
         return self.all_tweets
 
     def create_tweet(self, username, content, tag):
-        response = self.twitter_clone_db.create_tweet(
+        _tweet = self.twitter_clone_db.create_tweet(
             username, content, tag
         )
-        return response
+        t1 = Timestamp()
+        t2 = Timestamp()
+        if _tweet.posted_at is not None:
+            t1.FromDatetime(_tweet.posted_at)
+        if _tweet.last_edited_at is not None:
+            t2.FromDatetime(_tweet.last_edited_at)
+        else:
+            t2 = t1
+        tweet = Tweet(
+            id=_tweet.id,
+            username=_tweet.username,
+            content=_tweet.content,
+            posted_at=t1,
+            last_edited_at=t2,
+        )
+        for tag in _tweet.tags:
+            tweet.tag.append(tag.tag)
+        return tweet
 
     def remove_tweet(self, id):
         self.twitter_clone_db.remove_tweet(id)

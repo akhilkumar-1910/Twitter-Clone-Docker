@@ -1,8 +1,13 @@
-from database import models
+import os
+import logging
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.exc import NoResultFound
-import os
+
+from database import models
+
+logger = logging.getLogger(__name__)
 
 
 class TwitterCloneDB:
@@ -28,17 +33,19 @@ class TwitterCloneDB:
             .order_by(models.Tweet.posted_at.desc())
             .all()
         )
+        logger.info(f"{all_tweets}")
         return all_tweets
 
     def get_tweets(self, username):
-        tweets = (
+        user_tweets = (
             self.session.query(models.Tweet)
             .filter(models.Tweet.username == username)
             .order_by(models.Tweet.last_edited_at.desc())
             .order_by(models.Tweet.posted_at.desc())
             .all()
         )
-        return tweets
+        logger.info(f"{user_tweets}")
+        return user_tweets
 
     def create_tweet(self, username, content, tags):
         tweet_new = models.Tweet(username=username, content=content,)
@@ -46,6 +53,7 @@ class TwitterCloneDB:
             tweet_new.tags.append(models.Tag(tag=tag))
         self.session.add(tweet_new)
         self.session.commit()
+        logger.info(f"{tweet_new}")
         return tweet_new
 
     def remove_tweet(self, id):
@@ -53,6 +61,7 @@ class TwitterCloneDB:
             tweet = self.session.query(models.Tweet).filter(models.Tweet.id == id).one()
             self.session.delete(tweet)
             self.session.commit()
+            logger.info(f"tweet with id {id} deleted succesfully")
         except NoResultFound:
             return None
 
@@ -72,6 +81,7 @@ class TwitterCloneDB:
             edit_tweet = (
                 self.session.query(models.Tweet).filter(models.Tweet.id == id).one()
             )
+            logger.info(f"{edit_tweet}")
             return edit_tweet
         except NoResultFound:
             return None
