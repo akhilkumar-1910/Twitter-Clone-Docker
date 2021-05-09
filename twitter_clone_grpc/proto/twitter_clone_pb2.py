@@ -20,11 +20,43 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x13twitter_clone.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa6\x01\n\x05Tweet\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x10\n\x08username\x18\x02 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x03 \x01(\t\x12-\n\tposted_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x32\n\x0elast_edited_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0b\n\x03tag\x18\x06 \x03(\t2\xb4\x01\n\x0cTweetService\x12\"\n\x0cGetAllTweets\x12\x06.Tweet\x1a\x06.Tweet\"\x00\x30\x01\x12\x1f\n\tGetTweets\x12\x06.Tweet\x1a\x06.Tweet\"\x00\x30\x01\x12\x1f\n\x0b\x43reateTweet\x12\x06.Tweet\x1a\x06.Tweet\"\x00\x12\x1f\n\x0bRemoveTweet\x12\x06.Tweet\x1a\x06.Tweet\"\x00\x12\x1d\n\tEditTweet\x12\x06.Tweet\x1a\x06.Tweet\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x13twitter_clone.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x15\n\x04UUID\x12\r\n\x05value\x18\x01 \x01(\t\"\xb5\x01\n\x05Tweet\x12\x13\n\x04uuid\x18\x01 \x01(\x0b\x32\x05.UUID\x12\x16\n\x07user_id\x18\x02 \x01(\x0b\x32\x05.UUID\x12\x0f\n\x07\x63ontent\x18\x03 \x01(\t\x12-\n\tposted_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x32\n\x0elast_edited_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0b\n\x03tag\x18\x06 \x03(\t\"N\n\x04User\x12\x13\n\x04uuid\x18\x01 \x01(\x0b\x32\x05.UUID\x12\x10\n\x08username\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x10\n\x08password\x18\x04 \x01(\t\"Q\n\x0bUserProfile\x12\x13\n\x04uuid\x18\x01 \x01(\x0b\x32\x05.UUID\x12\x16\n\x07user_id\x18\x02 \x01(\x0b\x32\x05.UUID\x12\x15\n\rmobile_number\x18\x03 \x01(\t2\xb4\x01\n\x0cTweetService\x12\"\n\x0cGetAllTweets\x12\x06.Tweet\x1a\x06.Tweet\"\x00\x30\x01\x12\x1f\n\tGetTweets\x12\x06.Tweet\x1a\x06.Tweet\"\x00\x30\x01\x12\x1f\n\x0b\x43reateTweet\x12\x06.Tweet\x1a\x06.Tweet\"\x00\x12\x1f\n\x0bRemoveTweet\x12\x06.Tweet\x1a\x06.Tweet\"\x00\x12\x1d\n\tEditTweet\x12\x06.Tweet\x1a\x06.Tweet\"\x00\x62\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
 
+
+
+_UUID = _descriptor.Descriptor(
+  name='UUID',
+  full_name='UUID',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='UUID.value', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=56,
+  serialized_end=77,
+)
 
 
 _TWEET = _descriptor.Descriptor(
@@ -36,16 +68,16 @@ _TWEET = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='Tweet.id', index=0,
-      number=1, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      name='uuid', full_name='Tweet.uuid', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='username', full_name='Tweet.username', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      name='user_id', full_name='Tweet.user_id', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -89,14 +121,128 @@ _TWEET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=57,
-  serialized_end=223,
+  serialized_start=80,
+  serialized_end=261,
 )
 
+
+_USER = _descriptor.Descriptor(
+  name='User',
+  full_name='User',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='uuid', full_name='User.uuid', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='username', full_name='User.username', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='email', full_name='User.email', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='password', full_name='User.password', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=263,
+  serialized_end=341,
+)
+
+
+_USERPROFILE = _descriptor.Descriptor(
+  name='UserProfile',
+  full_name='UserProfile',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='uuid', full_name='UserProfile.uuid', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='user_id', full_name='UserProfile.user_id', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='mobile_number', full_name='UserProfile.mobile_number', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=343,
+  serialized_end=424,
+)
+
+_TWEET.fields_by_name['uuid'].message_type = _UUID
+_TWEET.fields_by_name['user_id'].message_type = _UUID
 _TWEET.fields_by_name['posted_at'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _TWEET.fields_by_name['last_edited_at'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_USER.fields_by_name['uuid'].message_type = _UUID
+_USERPROFILE.fields_by_name['uuid'].message_type = _UUID
+_USERPROFILE.fields_by_name['user_id'].message_type = _UUID
+DESCRIPTOR.message_types_by_name['UUID'] = _UUID
 DESCRIPTOR.message_types_by_name['Tweet'] = _TWEET
+DESCRIPTOR.message_types_by_name['User'] = _USER
+DESCRIPTOR.message_types_by_name['UserProfile'] = _USERPROFILE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+UUID = _reflection.GeneratedProtocolMessageType('UUID', (_message.Message,), {
+  'DESCRIPTOR' : _UUID,
+  '__module__' : 'twitter_clone_pb2'
+  # @@protoc_insertion_point(class_scope:UUID)
+  })
+_sym_db.RegisterMessage(UUID)
 
 Tweet = _reflection.GeneratedProtocolMessageType('Tweet', (_message.Message,), {
   'DESCRIPTOR' : _TWEET,
@@ -104,6 +250,20 @@ Tweet = _reflection.GeneratedProtocolMessageType('Tweet', (_message.Message,), {
   # @@protoc_insertion_point(class_scope:Tweet)
   })
 _sym_db.RegisterMessage(Tweet)
+
+User = _reflection.GeneratedProtocolMessageType('User', (_message.Message,), {
+  'DESCRIPTOR' : _USER,
+  '__module__' : 'twitter_clone_pb2'
+  # @@protoc_insertion_point(class_scope:User)
+  })
+_sym_db.RegisterMessage(User)
+
+UserProfile = _reflection.GeneratedProtocolMessageType('UserProfile', (_message.Message,), {
+  'DESCRIPTOR' : _USERPROFILE,
+  '__module__' : 'twitter_clone_pb2'
+  # @@protoc_insertion_point(class_scope:UserProfile)
+  })
+_sym_db.RegisterMessage(UserProfile)
 
 
 
@@ -114,8 +274,8 @@ _TWEETSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=226,
-  serialized_end=406,
+  serialized_start=427,
+  serialized_end=607,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetAllTweets',

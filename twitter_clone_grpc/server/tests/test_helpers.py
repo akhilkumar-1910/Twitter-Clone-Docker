@@ -6,6 +6,7 @@ from database import models
 from proto.twitter_clone_pb2 import Tweet
 from google.protobuf.timestamp_pb2 import Timestamp
 import datetime
+
 # import grpc
 
 
@@ -22,7 +23,7 @@ class TestHelper:
             posted_at=datetime.datetime.now(),
             last_edited_at=datetime.datetime.now(),
         )
-        for tag in ['tag_1', 'tag_2']:
+        for tag in ["tag_1", "tag_2"]:
             tweet_db.tags.append(models.Tag(tag=tag))
         tweets = [tweet_db, tweet_db]
         self.twitter_clone_db.get_all_tweets.return_value = tweets
@@ -56,7 +57,7 @@ class TestHelper:
             posted_at=datetime.datetime.now(),
             last_edited_at=datetime.datetime.now(),
         )
-        for tag in ['tag_1', 'tag_2']:
+        for tag in ["tag_1", "tag_2"]:
             tweet_db.tags.append(models.Tag(tag=tag))
         tweets = [tweet_db, tweet_db]
         self.twitter_clone_db.get_tweets.return_value = tweets

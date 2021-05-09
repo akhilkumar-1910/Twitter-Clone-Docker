@@ -48,7 +48,10 @@ class TwitterCloneDB:
         return user_tweets
 
     def create_tweet(self, username, content, tags):
-        tweet_new = models.Tweet(username=username, content=content,)
+        tweet_new = models.Tweet(
+            username=username,
+            content=content,
+        )
         for tag in tags:
             tweet_new.tags.append(models.Tag(tag=tag))
         self.session.add(tweet_new)

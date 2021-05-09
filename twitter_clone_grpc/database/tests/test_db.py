@@ -5,7 +5,6 @@ import pytest
 
 
 class TestTwitterCloneDB:
-
     def test_get_all_tweets(self, db_session):
         tweet_1 = models.Tweet(content="Test tweet one")
         tweet_2 = models.Tweet(content="Test tweet two")

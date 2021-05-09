@@ -2,7 +2,6 @@ from .. import models
 
 
 class TestModels:
-
     def test_tweet_object_id_content(self, db_session):
         tweet = models.Tweet(content="Test content")
         db_session.add(tweet)

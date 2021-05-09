@@ -56,9 +56,7 @@ class Helper:
         return self.all_tweets
 
     def create_tweet(self, username, content, tag):
-        _tweet = self.twitter_clone_db.create_tweet(
-            username, content, tag
-        )
+        _tweet = self.twitter_clone_db.create_tweet(username, content, tag)
         t1 = Timestamp()
         t2 = Timestamp()
         if _tweet.posted_at is not None:
@@ -82,7 +80,5 @@ class Helper:
         self.twitter_clone_db.remove_tweet(id)
 
     def edit_tweet(self, id, content, tag):
-        response = self.twitter_clone_db.edit_tweet(
-            id, content, tag
-        )
+        response = self.twitter_clone_db.edit_tweet(id, content, tag)
         return response

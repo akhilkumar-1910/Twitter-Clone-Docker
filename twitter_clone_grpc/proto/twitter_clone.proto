@@ -1,13 +1,30 @@
 syntax = "proto3";
 import "google/protobuf/timestamp.proto";
 
+message UUID{
+    string value = 1;
+}
+
 message Tweet{
-    int32 id = 1;
-    string username = 2;
+    optional UUID uuid = 1;
+    UUID user_id = 2;
     string content = 3;
     google.protobuf.Timestamp posted_at = 4;
     google.protobuf.Timestamp last_edited_at = 5;
     repeated string tag = 6;
+}
+
+message User{
+    optional UUID uuid = 1;
+    string username = 2;
+    string email = 3;
+    string password = 4;
+}
+
+message UserProfile{
+    UUID uuid = 1;
+    UUID user_id = 2;
+    string mobile_number = 3;
 }
 
 service TweetService{

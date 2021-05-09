@@ -24,11 +24,7 @@ class TweetServicer(twitter_clone_pb2_grpc.TweetServiceServicer):
     def CreateTweet(self, request, context):
         logger.info("Calling CreateTweet")
         helper = Helper()
-        response = helper.create_tweet(
-            request.username,
-            request.content,
-            request.tag
-        )
+        response = helper.create_tweet(request.username, request.content, request.tag)
         return response
 
     def RemoveTweet(self, request, context):
@@ -39,9 +35,5 @@ class TweetServicer(twitter_clone_pb2_grpc.TweetServiceServicer):
     def EditTweet(self, request, context):
         logger.info("Calling EditTweet")
         helper = Helper()
-        response = helper.edit_tweet(
-            request.id,
-            request.content,
-            request.tag
-        )
+        response = helper.edit_tweet(request.id, request.content, request.tag)
         return response
